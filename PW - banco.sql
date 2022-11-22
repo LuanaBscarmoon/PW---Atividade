@@ -8,20 +8,19 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema aulatec
+-- Schema pw
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `aulatec` ;
 
 -- -----------------------------------------------------
 -- Schema aulatec
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `aulatec` DEFAULT CHARACTER SET utf8 ;
-USE `aulatec` ;
+CREATE SCHEMA IF NOT EXISTS `pw` DEFAULT CHARACTER SET utf8 ;
+USE `pw` ;
 
 -- -----------------------------------------------------
--- Table `aulatec`.`cliente`
+-- Table `pw`.`cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `aulatec`.`cliente` (
+CREATE TABLE IF NOT EXISTS `pw`.`cliente` (
   `idCliente` INT NOT NULL AUTO_INCREMENT,
   `nomeCliente` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL,
   `enderecoCliente` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
@@ -36,9 +35,9 @@ DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
--- Table `aulatec`.`servico`
+-- Table `pw`.`servico`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `aulatec`.`servico` (
+CREATE TABLE IF NOT EXISTS `pw`.`servico` (
   `idServico` INT NOT NULL AUTO_INCREMENT,
   `nomeServico` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
   `descricaoServico` VARCHAR(45) CHARACTER SET 'utf8' NULL DEFAULT NULL,
@@ -49,9 +48,9 @@ DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
--- Table `aulatec`.`ordemservico`
+-- Table `pw`.`ordemservico`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `aulatec`.`ordemservico` (
+CREATE TABLE IF NOT EXISTS `pw`.`ordemservico` (
   `idOS` INT NOT NULL,
   `dataOS` VARCHAR(45) NULL DEFAULT NULL,
   `idCliente` INT NULL DEFAULT NULL,
@@ -60,16 +59,16 @@ CREATE TABLE IF NOT EXISTS `aulatec`.`ordemservico` (
   PRIMARY KEY (`idOS`),
   CONSTRAINT `fk_Venda_Cliente`
     FOREIGN KEY (`idCliente`)
-    REFERENCES `aulatec`.`cliente` (`idCliente`))
+    REFERENCES `pw`.`cliente` (`idCliente`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
-CREATE INDEX `fk_Venda_Cliente_idx` ON `aulatec`.`ordemservico` (`idCliente` ASC) VISIBLE;
+CREATE INDEX `fk_Venda_Cliente_idx` ON `pw`.`ordemservico` (`idCliente` ASC) VISIBLE;
 
 -- -----------------------------------------------------
--- Table `aulatec`.`itemos`
+-- Table `pw`.`itemos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `aulatec`.`itemos` (
+CREATE TABLE IF NOT EXISTS `pw`.`itemos` (
   `idVenda` INT NOT NULL,
   `idServico` INT NOT NULL,
   `QuantidadeIOS` DECIMAL(10,2) NULL DEFAULT NULL,
@@ -77,20 +76,20 @@ CREATE TABLE IF NOT EXISTS `aulatec`.`itemos` (
   PRIMARY KEY (`idVenda`, `idServico`),
   CONSTRAINT `fk_itemVenda_Produto`
     FOREIGN KEY (`idServico`)
-    REFERENCES `aulatec`.`servico` (`idServico`),
+    REFERENCES `pw`.`servico` (`idServico`),
   CONSTRAINT `fk_itemVenda_Venda`
     FOREIGN KEY (`idVenda`)
-    REFERENCES `aulatec`.`ordemservico` (`idOS`))
+    REFERENCES `pw`.`ordemservico` (`idOS`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
-CREATE INDEX `fk_itemVenda_Produto_idx` ON `aulatec`.`itemos` (`idServico` ASC) VISIBLE;
+CREATE INDEX `fk_itemVenda_Produto_idx` ON `pw`.`itemos` (`idServico` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `aulatec`.`usuario`
+-- Table `pw`.`usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `aulatec`.`usuario` (
+CREATE TABLE IF NOT EXISTS `pw`.`usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `loginUsuario` VARCHAR(45) NOT NULL,
   `senhaUsuario` VARCHAR(40) NOT NULL,
