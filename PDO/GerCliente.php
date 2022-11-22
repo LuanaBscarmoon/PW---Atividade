@@ -97,7 +97,7 @@
                             <input type="text" class="form-control" id="txtEstado" name="txtEstado" placeholder="Estado" value="<?php echo isset($clienteEdit->estadoCliente) ? $clienteEdit->estadoCliente : null ?>">
 
                         </div>
-                        <button style="background-color: #2f4f4f; border-color: white;" type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
+                        <button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
                     </form>
                 </div>
             <?php

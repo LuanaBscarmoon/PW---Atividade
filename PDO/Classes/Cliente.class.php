@@ -95,8 +95,9 @@ Class Cliente extends Crud{
         $stmt->execute();
     }
 
-    public function atualizar($campo, $id){
-        $sqlAtualizar = "UPDATE {$this->tabela} SET nomeCliente = :nome, enderecoCliente = :endereco, telefoneCliente = :telefone,
+    public function atualizar($campo, $id)
+    {
+        $sqlAtualizar = "UPDATE $this->tabela SET nomeCliente = :nome, enderecoCliente = :endereco, telefoneCliente = :telefone,
         nascimentoCliente = :nascimento, bairroCliente = :bairro, cidadeCliente = :cidade, estadoCliente = :estado WHERE $campo = :id";
         $stmt = Conexao::prepare($sqlAtualizar);
         $stmt->bindParam(':nome', $this->nomeCliente, PDO::PARAM_STR);
@@ -106,8 +107,9 @@ Class Cliente extends Crud{
         $stmt->bindParam(':bairro', $this->bairroCliente, PDO::PARAM_STR);
         $stmt->bindParam(':cidade', $this->cidadeCliente, PDO::PARAM_STR);
         $stmt->bindParam(':estado', $this->estadoCliente, PDO::PARAM_STR);
+        $stmt->bindParam(':id',$id,PDO::PARAM_INT);
         $stmt->execute();
 
     }
-}
 
+}
