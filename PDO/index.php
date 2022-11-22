@@ -9,8 +9,8 @@
     <title>Usuários</title>
 </head>
 
-<body>
-    <header>
+<body style="background-color: #FAF0E6;">
+    <header style="background-color: #DCDCDC;">
 
     </header>
     <?php include_once '_parts/_header.php'; ?>
