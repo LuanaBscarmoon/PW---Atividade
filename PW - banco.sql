@@ -8,11 +8,11 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
--- Schema pw
+-- Schema pw;
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema aulatec
+-- Schema pw;
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `pw` DEFAULT CHARACTER SET utf8 ;
 USE `pw` ;
