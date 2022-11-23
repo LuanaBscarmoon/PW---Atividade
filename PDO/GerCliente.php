@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '_parts/_linkCSS.php'; ?>
+    
     <title>Novo Cliente</title>
 </head>
 
@@ -61,7 +62,6 @@
         ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <input type="hidden" name="txtId" value="<?php echo isset($clienteEdit->idCliente) ? $clienteEdit->idCliente : null ?>">
-
             <div class="row">
                 <div class="form-group">
                     <label for="txtServico">Nome</label>
@@ -69,18 +69,12 @@
 
                 </div>
             </div>
-
-            <br>
-
             <div class="row">
                 <div class="form-group">
                     <label for="txtEndereco">Endereço</label>
-                    <input name="txtEndereco" id="txtEndereco" class="form-control" placeholder="Rua ..." value="<?php echo isset($clienteEdit->enderecoCliente) ? $clienteEdit->enderecoCliente : null ?>">
+                    <input name="txtEndereco" id="txtEndereco" class="form-control" value="<?php echo isset($clienteEdit->enderecoCliente) ? $clienteEdit->enderecoCliente : null ?>">
                 </div>
             </div>
-
-            <br>
-
             <div class="row">
                 <div class="form-group mb-3 col-5">
                     <label for="txtBairro">Bairro</label>
@@ -96,7 +90,7 @@
                     <label for="sltEstado">Estado</label>
                     <select id="sltEstado" name="sltEstado" class="form-select" aria-label="Default select example">
                         <?php $selEstado = isset($clienteEdit->estadoCliente) ? $clienteEdit->estadoCliente : null?>
-                    <option selected> ... </option>
+                    <option selected>Selecione um estado</option>
                         <option value="AC" <?php if($selEstado=='AC') echo 'selected' ?>>Acre</option>
                         <option value="AL" <?php if($selEstado=='AL') echo 'selected' ?>>Alagoas</option>
                         <option value="AP" <?php if($selEstado=='AP') echo 'selected' ?>>Amapá</option>
@@ -127,31 +121,20 @@
                     </select>
                 </div>
             </div>
-
-            <br>
-
-
             <div class="row">
                 <div class="form-group mb-3 col-5">
-                    <label for="txtTelefone">Telefone</label>
+                    <label for="txtTelefone">Fone</label>
                     <input type="text" class="form-control" id="txtTelefone" name="txtTelefone" placeholder="Fone" value="<?php echo isset($clienteEdit->telefoneCliente) ? $clienteEdit->telefoneCliente : null ?>">
                 </div>
                 <div class="form-group mb-3 col-5">
-                    <label for="txtNascimento">Data de Nascimento</label>
+                    <label for="txtNascimento">Fone</label>
                     <input type="date" class="form-control" id="txtNascimento" name="txtNascimento" placeholder="Fone" value="<?php echo isset($clienteEdit->nascimentoCliente) ? $clienteEdit->nascimentoCliente : null ?>">
                 </div>
             </div>
 
-            <br>
-
-            <button type="submit" class="btn btn-primary" name="btnGravar" style="background-color: #2f4f4f; border-color: white;">Salvar</button>
-
-            <br>
-
+            <button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
         </form>
-
     </div>
-
     <?php include '_parts/_linkJS.php'; ?>
 </body>
 

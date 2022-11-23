@@ -11,7 +11,7 @@
 
 <body>
     <?php include_once '_parts/_header.php'; ?>
-    
+
     <div class="container mt-3">
         <?php
         spl_autoload_register(function ($class) {
@@ -25,12 +25,12 @@
         if (filter_has_var(INPUT_GET, 'idDel')) {
             $usuario = new User();
             $id = filter_input(INPUT_GET, 'idDel');
-            $usuario->deletar('idUsuario',$id);
+            $usuario->deletar('idUsuario', $id);
         ?>
             <script>
                 window.location.href = 'usuarios.php';
             </script>
-        <?php
+            <?php
         }
         if (filter_has_var(INPUT_POST, 'btnGravar')) {
             $usuario = new User();
@@ -46,20 +46,19 @@
                 } else {
                     $usuario->atualizar('idUsuario', $id);
                 }
-                ?>
-                <script>
-                window.location.href = 'usuarios.php';
-            </script>
-            <?php
-            }else{
-                ?>
+            } else {
+            ?>
                 <script>
                     alert('Senha e Confirmação não são iguais');
                     window.history.back();
                 </script>
-                <?php
+            <?php
             }
-            
+            ?>
+            <script>
+                window.location.href = 'usuarios.php';
+            </script>
+        <?php
         } else {
             ?>
             <div class="mt-3 col-4" style=" margin: 0 auto; width: 400px;">
@@ -77,7 +76,7 @@
                         <input type="password" class="form-control" id="txtConfirma" name="txtConfirma" placeholder="Password">
                         <label for="txtConfirma">Confirma Senha</label>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="background-color: #2f4f4f; border-color: white;" name="btnGravar">Salvar</button>
+                    <button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
                 </form>
             </div>
         <?php

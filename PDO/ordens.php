@@ -40,15 +40,19 @@
                         <td><?php echo $row->nomeCliente ?></td>
                         <td><?php echo $row->dataOS ?></td>
                         <td><?php echo $row->totalOS ?></td>
-                        <td></td>
+                        <td>
+                            <a href="GerOrdem.php?idDel=<?php echo $row->idOS?>" class="btn btn-danger" onclick= "return confirm('Deseja excluir o Serviço <?php echo $row->nomeCliente; ?> ?')">
+                                <i class="bi bi-trash3-fill"></i>
+                            </a>
+                        </td>
                     </tr>
                     <?php
                 }
                     ?>
             </tbody>
         </table>
-        <a href="GerOrdem.php" class="btn btn-success btn-lg" style="background-color: #2f4f4f; border-color: white;">
-            <i class="bi bi-file-earmark" style="background-color: #2f4f4f; border-color: white;"></i> Novo
+        <a href="GerOrdem.php" class="btn btn-success btn-lg">
+            <i class="bi bi-file-earmark"></i> Novo
         </a>
     </div>
     <?php include '_parts/_linkJS.php'; ?>

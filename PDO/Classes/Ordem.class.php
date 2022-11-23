@@ -68,7 +68,7 @@ class Ordem extends Crud{
 
     public function inserir(){
 
-        $sqlInserir = "INSERT INTO {$this->tabela} (dataOS, idCliente,totalOS,descontoOS) VALUES(:dataOS, :idCliente ,:totalOS, :descontoOS)";
+        $sqlInserir = "INSERT INTO {$this->tabela} (dataOS, idCliente,totalOS,descontoOS) VALUES(:dataOS, :idCliente, :totalOS, :descontoOS)";
         $conn = Conexao::conectar();
         $stmt = $conn->prepare($sqlInserir);
         $stmt->bindParam(':dataOS',$this->dataOS,PDO::PARAM_STR);
@@ -92,4 +92,12 @@ class Ordem extends Crud{
         return $stmt->fetchAll();
     }
 
+    public function deletarOS($campo, $id){
+        $sqlDel = "delete from ItemOS where
+        $campo=:delPar;";
+        $sqlDel .= "delete from {$this->tabela} where $campo=:delPar;";
+        $stmt = Conexao::prepare($sqlDel);
+        $stmt->bindParam(':delPar',$id,PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '_parts/_linkCSS.php'; ?>
+    
     <title>Usuários</title>
 </head>
 
@@ -54,8 +55,8 @@
                 ?>
             </tbody>
         </table>
-        <a href="GerCliente.php" class="btn btn-success btn-lg" style="background-color: #2f4f4f; border-color: white;">
-            <i class="bi bi-file-earmark" style="background-color: #2f4f4f; border-color: white;"></i> Novo
+        <a href="GerCliente.php" class="btn btn-success btn-lg">
+            <i class="bi bi-file-earmark"></i> Novo
         </a>
     </div>
     <?php include '_parts/_linkJS.php'; ?>
