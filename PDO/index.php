@@ -9,12 +9,11 @@
     <title>Usuários</title>
 </head>
 
-<body>
+<body style="background-image: url('images/Redes80.gif'); background-size: cover; height: 100%;">
     <header>
 
     </header>
     <?php include_once '_parts/_header.php'; ?>
-    <div class="p-5 text-center bg-light" style="margin-top: 58px;">
 
     </div>
     <?php include '_parts/_linkJS.php'; ?>

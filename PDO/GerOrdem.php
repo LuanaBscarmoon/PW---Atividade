@@ -76,7 +76,7 @@
             <div class="row mt-3">
                 <!-- Button trigger modal -->
                 <div class="mt-3">
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalOS">
+                    <button type="button" class="btn btn-success" style="background-color: #2f4f4f; border-color: white;" data-bs-toggle="modal" data-bs-target="#modalOS">
                         Adicionar Serviço
                     </button>
                 </div>
@@ -109,7 +109,7 @@
                     <input type="text" name="txtTotal" id="txtTotal" value="" readonly class="form-control">
                 </div>
             </div>
-            <div class="mt-3"><button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button></div>
+            <div class="mt-3"><button type="submit" class="btn btn-primary" name="btnGravar" style="background-color: #2f4f4f; border-color: white;">Salvar</button></div>
             
         </form>
         <!-- Modal -->
@@ -118,7 +118,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">Selecione o Serviço</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" style="background-color: #2f4f4f; border-color: white;" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <table class="table">
@@ -150,7 +150,7 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-secondary" style="background-color: #2f4f4f; border-color: white;" data-bs-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
             </div>

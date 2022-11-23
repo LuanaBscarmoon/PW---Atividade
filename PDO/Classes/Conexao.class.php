@@ -13,10 +13,10 @@ final class Conexao{
             define('db_host', 'localhost');
         }
         if(!defined('db_pass')){
-            define('db_pass', 'Password123#@!');
+            define('db_pass', '991967342004G11');
         }
         if(!defined('db_name')){
-            define('db_name', 'AulaTec');
+            define('db_name', 'pw');
         }
         if(!defined('db_port')){
             define('db_port', 3306);

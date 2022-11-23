@@ -46,6 +46,11 @@
                 } else {
                     $usuario->atualizar('idUsuario', $id);
                 }
+                ?>
+                <script>
+                window.location.href = 'usuarios.php';
+            </script>
+            <?php
             }else{
                 ?>
                 <script>
@@ -72,7 +77,7 @@
                         <input type="password" class="form-control" id="txtConfirma" name="txtConfirma" placeholder="Password">
                         <label for="txtConfirma">Confirma Senha</label>
                     </div>
-                    <button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #2f4f4f; border-color: white;" name="btnGravar">Salvar</button>
                 </form>
             </div>
         <?php

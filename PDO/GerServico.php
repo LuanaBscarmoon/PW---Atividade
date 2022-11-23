@@ -69,7 +69,7 @@
                         <input type="text" class="form-control" id="txtPreco" name="txtPreco" placeholder="Preço" value="<?php echo isset($servicoEdit->precoServico) ? $servicoEdit->precoServico : null ?>">
 
                     </div>
-                    <button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #2f4f4f; border-color: white;" name="btnGravar">Salvar</button>
                 </form>
             </div>
         <?php
