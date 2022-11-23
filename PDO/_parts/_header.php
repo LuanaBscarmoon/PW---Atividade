@@ -38,13 +38,13 @@ $arqui = explode(DIRECTORY_SEPARATOR,$_SERVER['PHP_SELF']);
   <div
     class="p-4 text-center bg-image"
     style="
-      background-image: url('images/nada.jpg');
+      background-image: url('images/fundo.jpg');
       height: 250px;">
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); margin-top: 50px;">
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
-          <h1 class="mb-1">Programação WEB, Banco de Dados e Redes de Computadores</h1>
-          <h2 class="mb-1">Técnico em Informática - Luana Freire - 3° ano (A)</h2>
+          <h1 class="mb-1">Programção WEB</h1>
+          <h2 class="mb-1">Tecnico em Infomática</h2>
           <h4>Ifro - <i>Campus</i> Ji-Paraná</h4>
         </div>
       </div>

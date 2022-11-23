@@ -28,14 +28,11 @@
 
         public function listaOrdenada($campo, $par = 'C'){
             $sqlSelect = "select * from {$this->tabela} ORDER BY :campo";
-
-            if($par === 'D'){
-
-                $sqlSelect.= ' desc ';
+            if($par ==='D'){
+                $sqlSelect .= ' desc';
             }
-
             $stmt = Conexao::prepare($sqlSelect);
-            $stmt->bindParam(':campo', $campo, PDO::PARAM_STR);
+            $stmt->bindParam(':campo',$campo,PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetchAll();
         }

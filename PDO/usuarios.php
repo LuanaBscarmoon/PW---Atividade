@@ -14,20 +14,14 @@
     <div class="container mt-3">
         <table class="table">
             <caption>Lista de usuários</caption>
-
             <thead class="table-secondary">
-
                 <tr>
                     <th>Código</th>
                     <th>Usuário</th>
                     <th>Ações</th>
-                    
                 </tr>
-
             </thead>
-
-            <tbody>
-
+            <tbody id="teste">
                 <?php
                 spl_autoload_register(function ($class) {
                     require_once "./Classes/{$class}.class.php";
@@ -50,19 +44,13 @@
                 <?php
                 }
                 ?>
-
             </tbody>
-
         </table>
-
-        <a style="background-color: #2f4f4f; border-color: white;" href="GerUsuario.php" class="btn btn-success btn-lg">
-            <i class="bi bi-file-earmark" style="background-color: #2f4f4f; border-color: white;"></i> Novo
+        <a href="GerUsuario.php" class="btn btn-success btn-lg">
+            <i class="bi bi-file-earmark"></i> Novo
         </a>
-
     </div>
-
     <?php include '_parts/_linkJS.php'; ?>
-
 </body>
 
 </html>

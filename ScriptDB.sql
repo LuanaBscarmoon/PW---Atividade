@@ -1,26 +1,16 @@
--- MySQL Workbench Forward Engineering
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+DROP SCHEMA IF EXISTS `AulaTec` ;
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema AulaTec
 -- -----------------------------------------------------
--- -----------------------------------------------------
--- Schema pw;
--- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `AulaTec` DEFAULT CHARACTER SET utf8 ;
+USE `AulaTec` ;
 
 -- -----------------------------------------------------
--- Schema pw;
+-- Table `Cliente`
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `pw` DEFAULT CHARACTER SET utf8 ;
-USE `pw` ;
-
--- -----------------------------------------------------
--- Table `pw`.`cliente`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pw`.`cliente` (
+CREATE TABLE IF NOT EXISTS `Cliente` (
   `idCliente` INT NOT NULL AUTO_INCREMENT,
   `nomeCliente` VARCHAR(50) CHARACTER SET 'utf8' COLLATE 'utf8_bin' NOT NULL,
   `enderecoCliente` VARCHAR(100) CHARACTER SET 'utf8' NOT NULL,
@@ -35,9 +25,9 @@ DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
--- Table `pw`.`servico`
+-- Table `AulaTec`.`servico`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pw`.`servico` (
+CREATE TABLE IF NOT EXISTS `Servico` (
   `idServico` INT NOT NULL AUTO_INCREMENT,
   `nomeServico` VARCHAR(45) CHARACTER SET 'utf8' NOT NULL,
   `descricaoServico` VARCHAR(45) CHARACTER SET 'utf8' NULL DEFAULT NULL,
@@ -48,48 +38,49 @@ DEFAULT CHARACTER SET = utf8mb3;
 
 
 -- -----------------------------------------------------
--- Table `pw`.`ordemservico`
+-- Table `AulaTec`.`ordemservico`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pw`.`ordemservico` (
-  `idOS` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `OrdemServico` (
+  `idOS` INT NOT NULL AUTO_INCREMENT,
   `dataOS` VARCHAR(45) NULL DEFAULT NULL,
   `idCliente` INT NULL DEFAULT NULL,
   `totalOS` DECIMAL(10,2) NULL DEFAULT NULL,
   `descontoOS` DECIMAL(10,2) NULL DEFAULT NULL,
   PRIMARY KEY (`idOS`),
-  CONSTRAINT `fk_Venda_Cliente`
+  CONSTRAINT `fk_OS_Cliente`
     FOREIGN KEY (`idCliente`)
-    REFERENCES `pw`.`cliente` (`idCliente`))
+    REFERENCES `Cliente` (`idCliente`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
-CREATE INDEX `fk_Venda_Cliente_idx` ON `pw`.`ordemservico` (`idCliente` ASC) VISIBLE;
+CREATE INDEX `fk_OS_Cliente_idx` ON `OrdemServico` (`idCliente` ASC) VISIBLE;
+
 
 -- -----------------------------------------------------
--- Table `pw`.`itemos`
+-- Table `itemos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pw`.`itemos` (
-  `idVenda` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `ItemOS` (
+  `idOS` INT NOT NULL,
   `idServico` INT NOT NULL,
-  `QuantidadeIOS` DECIMAL(10,2) NULL DEFAULT NULL,
+  `quantidadeIOS` DECIMAL(10,2) NULL DEFAULT NULL,
   `valorServico` DECIMAL(10,2) NULL DEFAULT NULL,
-  PRIMARY KEY (`idVenda`, `idServico`),
-  CONSTRAINT `fk_itemVenda_Produto`
+  PRIMARY KEY (`idOS`, `idServico`),
+  CONSTRAINT `fk_itemOS_Servico`
     FOREIGN KEY (`idServico`)
-    REFERENCES `pw`.`servico` (`idServico`),
-  CONSTRAINT `fk_itemVenda_Venda`
-    FOREIGN KEY (`idVenda`)
-    REFERENCES `pw`.`ordemservico` (`idOS`))
+    REFERENCES `Servico` (`idServico`),
+  CONSTRAINT `fk_itemOS_OS`
+    FOREIGN KEY (`idOS`)
+    REFERENCES `OrdemServico` (`idOS`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
-CREATE INDEX `fk_itemVenda_Produto_idx` ON `pw`.`itemos` (`idServico` ASC) VISIBLE;
+CREATE INDEX `fk_itemOS_Servico_idx` ON `ItemOS` (`idServico` ASC) VISIBLE;
 
 
 -- -----------------------------------------------------
--- Table `pw`.`usuario`
+-- Table `usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `pw`.`usuario` (
+CREATE TABLE IF NOT EXISTS `Usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `loginUsuario` VARCHAR(45) NOT NULL,
   `senhaUsuario` VARCHAR(40) NOT NULL,

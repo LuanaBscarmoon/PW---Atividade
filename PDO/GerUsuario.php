@@ -46,11 +46,6 @@
                 } else {
                     $usuario->atualizar('idUsuario', $id);
                 }
-            ?>
-                <script>
-                    window.location.href = 'usuarios.php';
-                </script>
-            <?php
             }else{
                 ?>
                 <script>
@@ -65,34 +60,25 @@
             <div class="mt-3 col-4" style=" margin: 0 auto; width: 400px;">
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <input type="hidden" name="txtId" value="<?php echo isset($usuarioEdit->idUsuario) ? $usuarioEdit->idUsuario : null ?>">
-
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="txtUsuario" name="txtUsuario" placeholder="Usuario" value="<?php echo isset($usuarioEdit->loginUsuario) ? $usuarioEdit->loginUsuario : null ?>">
                         <label for="txtUsuario">Usuário</label>
                     </div>
-
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Password">
                         <label for="txtSenha">Password</label>
                     </div>
-
                     <div class="form-floating mb-3">
                         <input type="password" class="form-control" id="txtConfirma" name="txtConfirma" placeholder="Password">
                         <label for="txtConfirma">Confirma Senha</label>
                     </div>
-
-                    <button type="submit" class="btn btn-primary" style="background-color: #2f4f4f; border-color: white;" name="btnGravar">Salvar</button>
-
+                    <button type="submit" class="btn btn-primary" name="btnGravar">Salvar</button>
                 </form>
-                
             </div>
-
         <?php
         }
         ?>
-
     </div>
-
     <?php include_once '_parts/_linkJS.php' ?>
 </body>
 
